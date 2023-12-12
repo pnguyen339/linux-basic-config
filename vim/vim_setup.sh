@@ -24,8 +24,10 @@ installVimBundle() {
 }
 
 #Vundle Installation
-installVimBundle "~/.vim/bundle/Vundle.vim" "https://github.com/VundleVim/Vundle.vim.git"
+installVimBundle "$HOME/.vim/bundle/Vundle.vim" "https://github.com/VundleVim/Vundle.vim.git"
 
+#Colorscheme
+installVimBundle "$HOME/.vim/bundle/vim-colors-solarized" "https://github.com/altercation/vim-colors-solarized.git"
 
 #YouCompleteMe Installation
 if $linux; then
@@ -34,12 +36,12 @@ else
     brew install java cmake python go nodejs
 fi
 
-installVimBundle "~/.vim/bundle/YouCompleteMe" "https://github.com/ycm-core/YouCompleteMe.git"
-python3 ~/.vim/bundle/YouCompleteMe/install.py
+installVimBundle "$HOME/.vim/bundle/YouCompleteMe" "https://github.com/ycm-core/YouCompleteMe.git"
+python3 $HOME/.vim/bundle/YouCompleteMe/install.py
 
 #syntastic Installation
-installVimBundle "~/.vim/bundle/syntastic" "https://github.com/vim-syntastic/syntastic.git"
+installVimBundle "$HOME/.vim/bundle/syntastic" "https://github.com/vim-syntastic/syntastic.git"
 
 
-sudo cp ./.vimrc  ~/.vimrc
+sudo cp ./vimrc  $HOME/.vimrc
 vim +PluginInstall +qall
